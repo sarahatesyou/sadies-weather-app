@@ -63,6 +63,7 @@ header {
 .current-temperature {
   font-size: 48px;
   display: flex;
+}
 
 .current-temperature-emoji {
   position: relative;
