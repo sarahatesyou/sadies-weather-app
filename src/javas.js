@@ -33,11 +33,6 @@ function formatDate(date) {
   let minutes = date.getMinutes().toString().padStart(2, "0");
 }
 
-function searchCity(city) {
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=o091fdfe309a88f508fe60bcaa4tc41a`;
-  axios.get(apiUrl).then(refreshWeather);
-}
-
 function submitSearch(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#city-search");
@@ -47,3 +42,8 @@ function submitSearch(event) {
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", submitSearch);
+
+function searchCity(city) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=o091fdfe309a88f508fe60bcaa4tc41a`;
+  axios.get(apiUrl).then(refreshWeather);
+}
