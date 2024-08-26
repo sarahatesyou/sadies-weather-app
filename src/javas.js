@@ -7,6 +7,7 @@ function refreshData(response) {
   let windSpeed = document.querySelector("#wind");
   let currentTime = document.querySelector("#dayTime");
   let date = new Date(response.data.time * 1000);
+  let emoji = document.querySelector("#emoji");
 
   currentTemperature.innerHTML = Math.round(temperature);
   currentCity.innerHTML = response.data.city;
@@ -14,6 +15,7 @@ function refreshData(response) {
   currentHumidity.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
   currentTime.innerHTML = formatDate(date);
+  emoji.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-emoji" id="emoji">`;
 }
 
 function formatDate(date) {
@@ -42,6 +44,16 @@ function submitSearch(event) {
   event.preventDefault();
   let searchInput = document.querySelector(".input-search");
   searchCity(searchInput.value);
+}
+
+function weeklyForecast(city) {
+  let apiKey = "o091fdfe309a88f508fe60bcaa4tc41a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecastHtml = "";
 }
 
 let searchFormElement = document.querySelector("#search-form");
