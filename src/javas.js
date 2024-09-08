@@ -1,20 +1,24 @@
 function refreshData(response) {
-  let currentTemperature = document.querySelector("#temperature");
-  let temperature = response.data.temperature.current;
+  let temperature = Math.round(response.data.temperature.current);
   let currentCity = document.querySelector(".current-city");
   let currentDescription = document.querySelector("#weather-description");
   let currentHumidity = document.querySelector("#humidity");
   let windSpeed = document.querySelector("#wind");
-  let currentTime = document.querySelector("#dayTime");
   let date = new Date(response.data.time * 1000);
   let emoji = document.querySelector("#emoji");
+  let time = document.querySelector("#time");
+  let formattedDate = formatDate(date);
+  let day = formattedDate.day;
+  let hours = formattedDate.hours;
+  let minutes = formattedDate.minutes;
 
-  currentTemperature.innerHTML = Math.round(temperature);
-  currentCity.innerHTML = response.data.city;
+  currentCity.innerHTML = `It's ${temperature}ºC this ${day} in
+              ${response.data.city}`;
+  time.innerHTML = `Last update: ${hours}:${minutes}`;
+  let currentTime = formatDate(date);
   currentDescription.innerHTML = response.data.condition.description;
   currentHumidity.innerHTML = `${response.data.temperature.humidity}%`;
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
-  currentTime.innerHTML = formatDate(date);
   emoji.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-emoji" id="emoji">`;
   weeklyForecast(response.data.city);
 }
@@ -32,9 +36,12 @@ function formatDate(date) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  return {
+    day: day,
+    hours: hours,
+    minutes: minutes,
+  };
 }
-
 function searchCity(city) {
   let apiKey = "o091fdfe309a88f508fe60bcaa4tc41a";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
@@ -61,10 +68,10 @@ function weeklyForecast(city) {
 }
 
 function displayForecast(response) {
-  let forecastHtml = "";
+  let forecastHtml = `<div class="weekly-forecast-title">Next week:</div>`;
 
   response.data.daily.forEach(function (day, index) {
-    if (index < 5) {
+    if (index > 0 && index < 7) {
       forecastHtml =
         forecastHtml +
         `<div class="weekly-forecast-day">
