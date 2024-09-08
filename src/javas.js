@@ -12,13 +12,13 @@ function refreshData(response) {
   let hours = formattedDate.hours;
   let minutes = formattedDate.minutes;
 
-  currentCity.innerHTML = `It's ${temperature}ºC this ${day} in
-              ${response.data.city}`;
-  time.innerHTML = `Last update: ${hours}:${minutes}`;
+  currentCity.innerHTML = `It's <strong>${temperature}ºC</strong> this ${day} in
+              <strong>${response.data.city}</strong>`;
+  time.innerHTML = `<i>Last update: ${hours}:${minutes}</i>`;
   let currentTime = formatDate(date);
-  currentDescription.innerHTML = response.data.condition.description;
-  currentHumidity.innerHTML = `${response.data.temperature.humidity}%`;
-  windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
+  currentDescription.innerHTML = `<strong>${response.data.condition.description}</strong>`;
+  currentHumidity.innerHTML = `<strong>${response.data.temperature.humidity}%</strong>`;
+  windSpeed.innerHTML = `<strong>${response.data.wind.speed}km/h</strong>`;
   emoji.innerHTML = `<img src="${response.data.condition.icon_url}" class="current-temperature-emoji" id="emoji">`;
   weeklyForecast(response.data.city);
 }

@@ -1,21 +1,22 @@
 body {
-  background: linear-gradient(
-    109.6deg,
-    rgb(20, 30, 48) 11.2%,
-    rgb(36, 59, 85) 91.1%
-  );
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/142/615/original/jeremy-thomas-4dpAqfTbvKA-unsplash.jpg?1725823555");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: "SUSE", sans-serif;
+  margin: 0;
+  height: 100vh;
 }
 
 .container {
-  background: white;
-  max-width: 800px;
+  background: #feffdf;
+  width: 800px;
   padding: 30px;
   margin: 0 auto;
   border-radius: 10px;
   box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
   position: fixed;
-  top: 7%;
+  top: 4%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -24,34 +25,34 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  border-bottom: 1px solid #f9f7fe;
   padding-bottom: 30px;
 }
 
 .input-search {
-  background-color: #f9f7fe;
-  border: none;
-  color: rgba(39, 33, 66, 0.4);
+  background-color: #feffdf;
+  border: 1px #52406d solid;
+  color: #333333;
   font-size: 16px;
   padding: 20px;
   width: 75%;
-  border-radius: 6px;
+  border-radius: 1px;
 }
 
 .button-search {
   margin-left: 5px;
   font-size: 16px;
-  background-color: #885df1;
+  background-color: #52406d;
   color: white;
   border: none;
-  padding: 20px;
+  padding: 22px;
   line-height: 1;
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
 .current-weather {
   flex: 1;
   margin-right: 20px;
+  border-right: 1px solid #d1d1d1;
 }
 
 .current-city {
@@ -61,14 +62,18 @@ header {
 }
 
 .current-details {
-  color: rgba(39, 33, 66, 0.4);
+  color: #333333;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
 }
 
 .current-details strong {
-  color: #f65282;
+  color: #bea0ba;
+}
+
+.current-weather h1 strong {
+  color: #52406d;
 }
 
 .current-temperature {
@@ -77,8 +82,9 @@ header {
 
 .current-temperature-emoji {
   position: relative;
-  width: 100px;´
+  width: 100px;
   text-align: center;
+  margin: 0 auto;
 }
 
 .current-temperature-value {
@@ -104,6 +110,7 @@ header {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #52406d;
 }
 
 .weekly-forecast-day {
@@ -111,6 +118,7 @@ header {
   flex-direction: column;
   text-align: center;
   width: 120px;
+  color: #bea0ba;
 }
 
 .weekly-forecast-icon {
@@ -120,7 +128,7 @@ header {
 
 .weekly-forecast-temperatures {
   text-align: center;
-  color: #f65282;
+  color: #333333;
   margin-top: 10px;
   display: flex;
   justify-content: center;
@@ -138,5 +146,5 @@ footer {
 }
 
 a {
-  color: #885df1;
+  color: #bea0ba;
 }

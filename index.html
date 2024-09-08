@@ -20,8 +20,8 @@
       <header>
         <div class="current-weather">
           <div>
-            <h1 class="current-city"></h1>
             <div class="current-temperature-emoji" id="emoji"></div>
+            <h1 class="current-city"></h1>
             <p class="current-details">
               We have
               <span id="weather-description"></span>, the wind speed is
@@ -30,43 +30,41 @@
               <span id="time"></span>
             </p>
           </div>
+          <main>
+            <form id="search-form">
+              <input
+                type="search"
+                placeholder="Enter a city.."
+                required
+                class="input-search"
+                id="city-search"
+              />
+              <input
+                type="submit"
+                value="🔎"
+                class="button-search"
+                id="submit-search"
+              />
+            </form>
+          </main>
         </div>
         <div class="weekly-forecast" id="forecast"></div>
       </header>
-      <main>
-        <form id="search-form">
-          <input
-            type="search"
-            placeholder="Enter a city.."
-            required
-            class="input-search"
-            id="city-search"
-          />
-          <input
-            type="submit"
-            value="Search"
-            class="button-search"
-            id="submit-search"
-          />
-        </form>
-      </main>
       <footer>
-        <p>
-          This project was coded by
-          <a href="https://github.com/sarahatesyou/" target="_blank"
-            >sarahatesyou</a
-          >
-          and is on
-          <a
-            href="https://github.com/sarahatesyou/sadies-weather-app"
-            target="_blank"
-            >Github</a
-          >
-          and hosted on
-          <a href="https://main--sadiesweatherapp.netlify.app/" target="_blank"
-            >Netlify</a
-          >
-        </p>
+        This project was coded by
+        <a href="https://github.com/sarahatesyou/" target="_blank"
+          >sarahatesyou</a
+        >
+        🦇 and is on
+        <a
+          href="https://github.com/sarahatesyou/sadies-weather-app"
+          target="_blank"
+          >Github</a
+        >
+        and hosted on
+        <a href="https://main--sadiesweatherapp.netlify.app/" target="_blank"
+          >Netlify</a
+        >
       </footer>
     </div>
     <script src="src/javas.js"></script>
